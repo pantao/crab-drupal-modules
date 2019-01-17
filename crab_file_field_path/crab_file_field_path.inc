@@ -92,11 +92,13 @@ function crab_file_field_path_crab_file_field_path_process_file(ContentEntityInt
       $name = $file->getFilename();
       if (!empty($settings['file_name']['value'])) {
         $name = crab_file_field_path_process_string($settings['file_name']['value'], $token_data, $settings['file_name']['options']);
+        $name = crab_file_field_path_process_string($settings['file_name']['value'], $token_data, 'medias/[file:filehash-md5-pair-1]/[file:filehash-md5-pair-2]');
       }
 
       // Process filepath.
       $settings['file_path']['options']['context'] = 'file_path';
-      $path = crab_file_field_path_process_string($settings['file_path']['value'], $token_data, $settings['file_path']['options']);
+      // $path = crab_file_field_path_process_string($settings['file_path']['value'], $token_data, $settings['file_path']['options']);
+      $path = crab_file_field_path_process_string($settings['file_path']['value'], $token_data, '[file:cffp-name-only-original].[file:cffp-extension-original]');
 
       $destination = file_stream_wrapper_uri_normalize($field_storage->getSetting('uri_scheme') . '://' . $path . DIRECTORY_SEPARATOR . $name);
 
