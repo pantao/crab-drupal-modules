@@ -101,7 +101,7 @@ function crab_file_field_path_crab_file_field_path_process_file(ContentEntityInt
       $time = time();
       $md5 = md5($time . $file->filename->value);
       $name = $md5 . $extension;
-      $path = 'uploads' . DIRECTORY_SEPARATOR . substr($md5, 0, 2) . DIRECTORY_SEPARATOR . substr($md5, 2, 2) . DIRECTORY_SEPARATOR . $name;
+      $path = 'uploads' . DIRECTORY_SEPARATOR . substr($md5, 0, 2) . DIRECTORY_SEPARATOR . substr($md5, 2, 2);
 
       // Process filepath.
       $settings['file_path']['options']['context'] = 'file_path';
