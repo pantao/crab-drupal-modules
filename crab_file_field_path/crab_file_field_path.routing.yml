@@ -1,0 +1,7 @@
+filefield_paths.admin_settings:
+  path: '/admin/config/media/file-system/crab-file-field-path'
+  defaults:
+    _form: '\Drupal\crab_file_field_path\Form\SettingsForm'
+    _title: 'Crab File Field Path settings'
+  requirements:
+    _permission: 'administer site configuration'

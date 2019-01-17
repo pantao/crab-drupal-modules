@@ -1,0 +1,4 @@
+crab_file_field_path.admin_settings:
+  route_name: crab_file_field_path.admin_settings
+  base_route: system.file_system_settings
+  title: Crab File Field Path settings

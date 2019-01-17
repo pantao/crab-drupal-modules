@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the File (Field) Paths module.
+ */
+
+use Drupal\Core\Database\Database;
+
+/**
+ * Implements hook_install().
+ */
+function crab_file_field_path_install() {
+  // Populate the origname field with the current filenames.
+  Database::getConnection()
+    ->update('file_managed')
+    ->expression('origname', 'filename')
+    ->execute();
+}

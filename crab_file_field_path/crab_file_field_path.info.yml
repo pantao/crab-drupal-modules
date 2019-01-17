@@ -1,0 +1,12 @@
+name: 'Crab File Field Path'
+description: 'Adds improved Token based file sorting and renaming functionalities.'
+package: Crab
+configure: crab_file_field_path.admin_settings
+# core: 8.x
+type: module
+dependencies:
+  - file
+
+version: '8.x-1.0-beta1'
+core: '8.x'
+project: 'crab_file_field_path'
