@@ -92,13 +92,20 @@ function crab_file_field_path_crab_file_field_path_process_file(ContentEntityInt
       $name = $file->getFilename();
       if (!empty($settings['file_name']['value'])) {
         $name = crab_file_field_path_process_string($settings['file_name']['value'], $token_data, $settings['file_name']['options']);
-        $name = crab_file_field_path_process_string($settings['file_name']['value'], $token_data, 'medias/[file:filehash-md5-pair-1]/[file:filehash-md5-pair-2]');
       }
+
+      // 修改文件名称
+      // $name = 
+      $basename = $file_system->basename($file->filename->value);
+      $extension = preg_match('/\.[^.]+$/', $basename, $matches) ? $matches[0] : NULL;
+      $time = time();
+      $md5 = md5($time . $file->filename->value);
+      $name = $md5 . '.' . $extension;
+      $path = substr($md5, 0, 2) . DIRECTORY_SEPARATOR . substr($md5, 2, 2) . DIRECTORY_SEPARATOR . $name;
 
       // Process filepath.
       $settings['file_path']['options']['context'] = 'file_path';
       // $path = crab_file_field_path_process_string($settings['file_path']['value'], $token_data, $settings['file_path']['options']);
-      $path = crab_file_field_path_process_string($settings['file_path']['value'], $token_data, '[file:cffp-name-only-original].[file:cffp-extension-original]');
 
       $destination = file_stream_wrapper_uri_normalize($field_storage->getSetting('uri_scheme') . '://' . $path . DIRECTORY_SEPARATOR . $name);
 
