@@ -377,7 +377,7 @@ function crab_file_field_path_entity_insert(EntityInterface $entity) {
  * Implements hook_entity_update().
  */
 function crab_file_field_path_entity_update(EntityInterface $entity) {
-  \Drupal::logger('crab_file_field_path')->debug('Entity type id: ' . $entity->getEntityTypeId())
+  \Drupal::logger('crab_file_field_path')->debug('Entity type id: ' . $entity->getEntityTypeId());
   if ($entity instanceof ContentEntityInterface) {
     foreach ($entity->getFields() as $field) {
       if ($field instanceof FileFieldItemList && _crab_file_field_path_is_enabled($field)) {
