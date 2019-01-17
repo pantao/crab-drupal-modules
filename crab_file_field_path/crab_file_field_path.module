@@ -381,7 +381,7 @@ function crab_file_field_path_entity_update(EntityInterface $entity) {
   
   if ($entity instanceof ContentEntityInterface) {
     foreach ($entity->getFields() as $field) {
-      \Drupal::logger('Crab File Field Path')->debug('[Field] ' . $field->getNae() . ' Value: ' . json_encode($field->getValue()));
+      \Drupal::logger('Crab File Field Path')->debug('[Field] ' . $field->getName() . ' Value: ' . json_encode($field->getValue()));
       if ($field instanceof FileFieldItemList && _crab_file_field_path_is_enabled($field)) {
         $settings = _crab_file_field_path_get_field_settings($field);
         \Drupal::logger('Crab File Field Path')->debug('field should process');
